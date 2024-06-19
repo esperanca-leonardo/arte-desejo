@@ -1,0 +1,31 @@
+package com.esperanca.projects.artedesejo.domain.consumer.enums;
+
+public enum Gender
+{
+  MAN,
+  CIS_MAN,
+  INTERSEX_MAN,
+  TRANS_MAN,
+  TRANSMASCULINE,
+
+  WOMAN,
+  CIS_WOMAN,
+  INTERSEX_WOMAN,
+  TRANS_WOMAN,
+  TRANS_FEMININE,
+
+  BEYONDE_BINARY,
+  AGENDER,
+  BIGENDER,
+  GENDERFLUID,
+  GENDER_QUESTIONING,
+  GENDERQUEER,
+  INTERSEX,
+  NONBINARY,
+  PANGENDER,
+  TRANS_PERSON,
+  TWO_SPIRIT,
+
+  NOT_LISTED
+}
+
