@@ -1,0 +1,23 @@
+version: '3.8'
+
+networks:
+  arte-desejo-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: arte-desejo-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: arte_desejo
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - arte-desejo-network
+
+volumes:
+  postgres_data:
