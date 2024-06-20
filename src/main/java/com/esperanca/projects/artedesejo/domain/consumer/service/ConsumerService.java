@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.consumer.service;
 
-import com.esperanca.projects.artedesejo.core.crud.Crud;
+import com.esperanca.projects.artedesejo.core.contracts.crud.Crud;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerNotFoundException;
