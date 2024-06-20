@@ -1,0 +1,65 @@
+package com.esperanca.projects.artedesejo.domain.supplier.service;
+
+import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
+import com.esperanca.projects.artedesejo.domain.supplier.converter.SupplierConverter;
+import com.esperanca.projects.artedesejo.domain.supplier.entity.Supplier;
+import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierNotFoundException;
+import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierInput;
+import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierOutput;
+import com.esperanca.projects.artedesejo.domain.supplier.repository.SupplierRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@AllArgsConstructor
+public class SupplierServiceImpl implements SupplierService
+{
+  private final PropertyCopier copier;
+  private final SupplierConverter converter;
+  private final SupplierRepository repository;
+
+  @Override
+  public List<SupplierOutput> findAll()
+  {
+    final List<Supplier> suppliers = this.repository.findAll();
+    return this.converter.toCollectionOutput(suppliers);
+  }
+
+  @Override
+  public SupplierOutput findById(Long id) throws SupplierNotFoundException
+  {
+    return this.repository.findById(id)
+        .map(this.converter::toOutput)
+        .orElseThrow(() -> new SupplierNotFoundException(id));
+  }
+
+  @Override
+  public SupplierOutput save(SupplierInput supplierInput)
+  {
+    Supplier supplier = this.converter.toEntity(supplierInput);
+    supplier = this.repository.save(supplier);
+    return this.converter.toOutput(supplier);
+  }
+
+  @Override
+  public SupplierOutput updateById(Long id, SupplierInput supplierInput)
+      throws SupplierNotFoundException
+  {
+    Supplier savedSupplier = this.repository.findById(id)
+        .orElseThrow(() -> new SupplierNotFoundException(id));
+
+    this.copier.copyProperties(supplierInput, savedSupplier);
+
+    savedSupplier = this.repository.save(savedSupplier);
+    return this.converter.toOutput(savedSupplier);
+  }
+
+  @Override
+  public void deleteById(Long id)
+  {
+    this.findById(id);
+    this.repository.deleteById(id);
+  }
+}
