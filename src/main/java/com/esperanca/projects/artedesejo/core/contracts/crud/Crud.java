@@ -2,15 +2,15 @@ package com.esperanca.projects.artedesejo.core.contracts.crud;
 
 import java.util.List;
 
-public interface Crud<Output, Input>
+public interface Crud<Output, Input, ID>
 {
   List<Output> findAll();
 
-  Output findById(Long id);
+  Output findById(ID id);
 
   Output save(Input input);
 
-  Output updateById(Long id, Input input);
+  Output updateById(ID id, Input input);
 
-  void deleteById(Long id);
+  void deleteById(ID id);
 }

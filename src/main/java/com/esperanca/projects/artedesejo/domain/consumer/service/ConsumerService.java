@@ -7,7 +7,7 @@ import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.Consume
 
 import java.util.List;
 
-public interface ConsumerService extends Crud<ConsumerOutput, ConsumerInput>
+public interface ConsumerService extends Crud<ConsumerOutput, ConsumerInput, Long>
 {
   @Override
   List<ConsumerOutput> findAll();
