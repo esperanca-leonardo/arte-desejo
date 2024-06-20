@@ -1,21 +1,27 @@
 package com.esperanca.projects.artedesejo.domain.consumer.service;
 
+import com.esperanca.projects.artedesejo.core.crud.Crud;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerNotFoundException;
 
 import java.util.List;
 
-public interface ConsumerService
+public interface ConsumerService extends Crud<ConsumerOutput, ConsumerInput>
 {
+  @Override
   List<ConsumerOutput> findAll();
 
+  @Override
   ConsumerOutput findById(Long id) throws ConsumerNotFoundException;
 
+  @Override
   ConsumerOutput save(ConsumerInput consumerInput);
 
-  ConsumerOutput updateById(ConsumerInput consumerInput, Long id)
+  @Override
+  ConsumerOutput updateById(Long id, ConsumerInput consumerInput)
       throws ConsumerNotFoundException;
 
+  @Override
   void deleteById(Long id);
 }

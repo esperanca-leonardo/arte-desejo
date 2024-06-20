@@ -43,7 +43,7 @@ public class ConsumerController
   public ConsumerOutput updateById(@RequestBody ConsumerInput consumerInput,
                                    @PathVariable Long id)
   {
-    return this.service.updateById(consumerInput, id);
+    return this.service.updateById(id, consumerInput);
   }
 
   @DeleteMapping("/{id}")

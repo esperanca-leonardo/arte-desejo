@@ -48,7 +48,7 @@ public class ConsumerServiceImpl implements ConsumerService
   }
 
   @Override
-  public ConsumerOutput updateById(ConsumerInput consumerInput, Long id)
+  public ConsumerOutput updateById(Long id, ConsumerInput consumerInput)
       throws ConsumerNotFoundException
   {
     Consumer savedConsumer = this.repository.findById(id)
