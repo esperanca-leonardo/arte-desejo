@@ -1,5 +1,6 @@
-package com.esperanca.projects.artedesejo.domain.consumer.controller.advice.responseerror.enums;
+package com.esperanca.projects.artedesejo.domain.consumer.controller.error.enums;
 
+import com.esperanca.projects.artedesejo.core.controller.error.type.ControllerErrorType;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
@@ -9,7 +10,7 @@ import static java.net.URI.create;
 import static org.springframework.http.HttpStatus.CONFLICT;
 
 @Getter
-public enum ConsumerControllerAdviceResponseErrorType
+public enum ConsumerControllerErrorType implements ControllerErrorType
 {
   NOT_FOUND("/not-found", "Consumer not found",
       HttpStatus.NOT_FOUND
@@ -28,8 +29,7 @@ public enum ConsumerControllerAdviceResponseErrorType
   private final String title;
   private final HttpStatus status;
 
-  ConsumerControllerAdviceResponseErrorType(String type, String title,
-                                            HttpStatus status)
+  ConsumerControllerErrorType(String type, String title, HttpStatus status)
   {
     this.type = create("https://artedesejo.com.br/problems/consumer" + type);
     this.title = title;
