@@ -1,7 +1,7 @@
 package com.esperanca.projects.artedesejo.domain.supplier.controller.error;
 
 import com.esperanca.projects.artedesejo.core.error.problemdetail.contracts.ProblemDetailBuilder;
-import com.esperanca.projects.artedesejo.domain.supplier.controller.SupplierController;
+import com.esperanca.projects.artedesejo.domain.supplier.controller.SupplierCrudController;
 import com.esperanca.projects.artedesejo.domain.supplier.controller.error.enums.SupplierProblemDetailType;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierNotFoundException;
 import lombok.AllArgsConstructor;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import static com.esperanca.projects.artedesejo.domain.supplier.controller.error.enums.SupplierProblemDetailType.NOT_FOUND;
 
 @AllArgsConstructor
-@RestControllerAdvice(assignableTypes = SupplierController.class)
-public class SupplierControllerError
+@RestControllerAdvice(assignableTypes = SupplierCrudController.class)
+public class SupplierCrudControllerError
 {
   private final ProblemDetailBuilder
       <SupplierProblemDetailType> responseErrorBuilder;

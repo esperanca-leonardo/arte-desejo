@@ -13,7 +13,7 @@ import static org.springframework.http.HttpStatus.*;
 @RestController
 @RequestMapping("/suppliers")
 @AllArgsConstructor
-public class SupplierController
+public class SupplierCrudController
 {
   private final SupplierCrudService service;
 
