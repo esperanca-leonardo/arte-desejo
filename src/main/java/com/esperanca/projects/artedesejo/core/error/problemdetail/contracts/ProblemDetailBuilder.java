@@ -1,6 +1,5 @@
-package com.esperanca.projects.artedesejo.core.controller.error.builder;
+package com.esperanca.projects.artedesejo.core.error.problemdetail.contracts;
 
-import com.esperanca.projects.artedesejo.core.controller.error.type.ControllerErrorType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 
@@ -10,7 +9,7 @@ import java.time.LocalDateTime;
 import static java.time.LocalDateTime.now;
 import static org.springframework.http.ProblemDetail.forStatusAndDetail;
 
-public interface ControllerErrorBuilder<Type extends ControllerErrorType>
+public interface ProblemDetailBuilder<Type extends ProblemDetailType>
 {
   default ProblemDetail buildProblemDetail(Type responseError, String detail)
   {

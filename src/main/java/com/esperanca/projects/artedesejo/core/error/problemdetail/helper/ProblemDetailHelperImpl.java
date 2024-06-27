@@ -1,6 +1,6 @@
-package com.esperanca.projects.artedesejo.core.problemdetail.helper;
+package com.esperanca.projects.artedesejo.core.error.problemdetail.helper;
 
-import com.esperanca.projects.artedesejo.core.problemdetail.fielderror.Field;
+import com.esperanca.projects.artedesejo.core.error.problemdetail.fielderror.ProblemDetailFieldError;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,16 +11,16 @@ import java.util.List;
 public class ProblemDetailHelperImpl implements ProblemDetailHelper
 {
   @Override
-  public Field mapToField(FieldError fieldError)
+  public ProblemDetailFieldError mapToField(FieldError fieldError)
   {
-    return Field.builder()
+    return ProblemDetailFieldError.builder()
         .field(fieldError.getField())
         .message(fieldError.getDefaultMessage())
         .build();
   }
 
   @Override
-  public List<Field> extractFieldErrors(
+  public List<ProblemDetailFieldError> extractFieldErrors(
       MethodArgumentNotValidException exception)
   {
     return exception.getBindingResult()

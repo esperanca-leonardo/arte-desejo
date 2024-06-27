@@ -1,10 +1,10 @@
-package com.esperanca.projects.artedesejo.core.controller.error.type;
+package com.esperanca.projects.artedesejo.core.error.problemdetail.contracts;
 
 import org.springframework.http.HttpStatus;
 
 import java.net.URI;
 
-public interface ControllerErrorType
+public interface ProblemDetailType
 {
   URI getType();
   String getTitle();
