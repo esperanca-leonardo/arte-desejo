@@ -11,7 +11,7 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/consumers")
 @AllArgsConstructor
 public class ConsumerController
 {
