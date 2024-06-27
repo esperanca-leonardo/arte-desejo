@@ -2,7 +2,7 @@ package com.esperanca.projects.artedesejo.domain.supplier.controller;
 
 import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierInput;
 import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierOutput;
-import com.esperanca.projects.artedesejo.domain.supplier.service.SupplierService;
+import com.esperanca.projects.artedesejo.domain.supplier.service.crud.SupplierCrudService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ import static org.springframework.http.HttpStatus.*;
 @AllArgsConstructor
 public class SupplierController
 {
-  private final SupplierService service;
+  private final SupplierCrudService service;
 
   @GetMapping
   @ResponseStatus(OK)
