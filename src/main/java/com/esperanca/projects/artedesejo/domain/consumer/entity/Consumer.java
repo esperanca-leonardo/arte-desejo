@@ -15,22 +15,12 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = true)
 public class Consumer extends BaseEntity
 {
-  @Column(nullable = false)
   private String name;
-
   private Gender gender;
-
   private SexualOrientation sexualOrientation;
-
   private LocalDate dateOfBirth;
-
-  @Column(unique = true, nullable = false)
   private String phoneNumber;
-
-  @Column(unique = true, nullable = false)
   private String email;
-
-  @Column(unique = true, nullable = false)
   private String cpf;
 
   @Embedded
