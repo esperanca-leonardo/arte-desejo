@@ -1,8 +1,8 @@
 package com.esperanca.projects.artedesejo.domain.consumer.controller.error;
 
-import com.esperanca.projects.artedesejo.core.controller.error.builder.ControllerErrorBuilder;
+import com.esperanca.projects.artedesejo.core.error.problemdetail.contracts.ProblemDetailBuilder;
 import com.esperanca.projects.artedesejo.domain.consumer.controller.ConsumerController;
-import com.esperanca.projects.artedesejo.domain.consumer.controller.error.enums.ConsumerControllerErrorType;
+import com.esperanca.projects.artedesejo.domain.consumer.controller.error.enums.ConsumerProblemDetailType;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerNotFoundException;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.verifications.CpfAlreadyExistsException;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.verifications.EmailAlreadyExistsException;
@@ -13,21 +13,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static com.esperanca.projects.artedesejo.domain.consumer.controller.error.enums.ConsumerControllerErrorType.*;
+import static com.esperanca.projects.artedesejo.domain.consumer.controller.error.enums.ConsumerProblemDetailType.*;
 
 @AllArgsConstructor
 @RestControllerAdvice(assignableTypes = ConsumerController.class)
 public class ConsumerControllerError
 {
-  private final ControllerErrorBuilder
-      <ConsumerControllerErrorType> responseErrorBuilder;
+  private final ProblemDetailBuilder
+      <ConsumerProblemDetailType> problemDetailBuilder;
 
   @ExceptionHandler(ConsumerNotFoundException.class)
   public ResponseEntity<ProblemDetail> handleConsumerNotFoundException(
       ConsumerNotFoundException exception)
   {
     final ProblemDetail problemDetail =
-        responseErrorBuilder.buildProblemDetail(NOT_FOUND,
+        problemDetailBuilder.buildProblemDetail(NOT_FOUND,
         exception.getMessage()
     );
 
@@ -39,7 +39,7 @@ public class ConsumerControllerError
       CpfAlreadyExistsException exception)
   {
     final ProblemDetail problemDetail =
-        responseErrorBuilder.buildProblemDetail(CPF_ALREADY_EXISTS,
+        problemDetailBuilder.buildProblemDetail(CPF_ALREADY_EXISTS,
             exception.getMessage()
         );
 
@@ -51,7 +51,7 @@ public class ConsumerControllerError
       EmailAlreadyExistsException exception)
   {
     final ProblemDetail problemDetail =
-        responseErrorBuilder.buildProblemDetail(EMAIL_ALREADY_EXISTS,
+        problemDetailBuilder.buildProblemDetail(EMAIL_ALREADY_EXISTS,
             exception.getMessage()
         );
 
@@ -65,7 +65,7 @@ public class ConsumerControllerError
       PhoneNumberAlreadyExistsException exception)
   {
     final ProblemDetail problemDetail =
-        responseErrorBuilder.buildProblemDetail(PHONE_NUMBER_ALREADY_EXISTS,
+        problemDetailBuilder.buildProblemDetail(PHONE_NUMBER_ALREADY_EXISTS,
             exception.getMessage()
         );
 
