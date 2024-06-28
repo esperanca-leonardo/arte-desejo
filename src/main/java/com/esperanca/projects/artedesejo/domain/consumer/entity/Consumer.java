@@ -10,13 +10,19 @@ import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 
+import static jakarta.persistence.EnumType.STRING;
+
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = true)
 public class Consumer extends BaseEntity
 {
   private String name;
+
+  @Enumerated(STRING)
   private Gender gender;
+
+  @Enumerated(STRING)
   private SexualOrientation sexualOrientation;
   private LocalDate dateOfBirth;
   private String phoneNumber;
