@@ -61,7 +61,7 @@ public class SupplierCrudServiceImpl implements SupplierCrudService
   }
 
   @Override
-  public void deleteById(Long id)
+  public void deleteById(Long id) throws SupplierInUseException
   {
     this.findById(id);
 
