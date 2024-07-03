@@ -1,8 +1,10 @@
+DELETE FROM product;
 DELETE FROM supplier;
 DELETE FROM consumer;
 
 ALTER SEQUENCE supplier_id_seq RESTART WITH 1;
 ALTER SEQUENCE consumer_id_seq RESTART WITH 1;
+ALTER SEQUENCE product_id_seq RESTART WITH 1;
 
 INSERT INTO supplier (name) VALUES
     ('Sensual Pleasures'),
@@ -52,3 +54,47 @@ INSERT INTO consumer (
 
 ('Jack', 'MAN', 'STRAIGHT', '1987-02-14', '(99) 99012-3456', 'jack@example.com', '901.234.567-89',
  '54321-210', 'Rua das Mangueiras', '987', '', 'Centro', 'Manaus', 'AM');
+
+INSERT INTO product (
+    name, description, color, brand, flavor, sensation, category, sub_category, target_audience,
+    size, fabric, additional_information, quantity, stock_quantity, cost_price, sale_price,
+    supplier_id
+) VALUES
+
+('Vibrador Clássico', 'Vibrador clássico com várias velocidades.', 'Rosa', 'Lovetoys', NULL,
+'Vibração', 'Brinquedos', 'Vibradores', 'Adultos', 'Médio', 'Silicone', 'À prova dagua', 50, 40,
+29.90, 59.90, 1),
+
+('Gel Lubrificante', 'Gel lubrificante com sabor morango.', 'Transparente', 'Durex', 'Morango',
+'Refrescante', 'Lubrificantes', 'Comestíveis', 'Adultos', '100ml', NULL, 'Comestível', 100, 85,
+9.90, 19.90, 2),
+
+('Camisinha Texturizada', 'Camisinha com textura para maior prazer.', 'Transparente', 'Jontex',
+NULL, 'Textura', 'Preservativos', 'Texturizados', 'Adultos', 'Padrão', 'Látex', 'Lubrificada', 200,
+150, 4.50, 7.90, 3),
+
+('Plug Anal', 'Plug anal com base larga para segurança.', 'Preto', 'Sensualove', NULL, 'Prazer',
+'Brinquedos', 'Plugs', 'Adultos', 'Pequeno', 'Silicone',
+'Compatível com lubrificantes à base de água', 30, 20, 19.90, 39.90, 1),
+
+('Calcinha comestível', 'Calcinha comestível sabor cereja.', 'Vermelho', 'LoveHoney', 'Cereja',
+'Doce', 'Roupas Íntimas', 'Comestíveis', 'Adultos', 'Único', 'Gelatina', 'Sabor natural', 25, 15,
+14.90, 29.90, 2),
+
+('Anel Peniano', 'Anel peniano com vibração.', 'Azul', 'Durex', NULL, 'Vibração', 'Brinquedos',
+'Anéis', 'Adultos', 'Ajustável', 'Silicone', 'Bateria incluída', 60, 45, 9.90, 19.90, 3),
+
+('Fantasia de Enfermeira', 'Fantasia de enfermeira para jogos sensuais.', 'Branco', 'Fantasy',
+NULL, 'Roleplay', 'Roupas Íntimas', 'Fantasias', 'Adultos', 'Médio', 'Poliéster', 'Com acessórios',
+15, 10, 49.90, 99.90, 1),
+
+('Vela de Massagem', 'Vela de massagem aromática.', 'Roxo', 'Kissable', 'Lavanda', 'Relaxante',
+'Cosméticos', 'Velas', 'Adultos', '200g', NULL, 'Aromaterapia', 20, 10, 24.90, 49.90, 2),
+
+('Bolinhas Tailandesas', 'Bolinhas tailandesas para exercícios íntimos.', 'Rosa', 'Fun Factory',
+ NULL, 'Prazer', 'Brinquedos', 'Bolinhas', 'Adultos', 'Pequeno', 'Silicone', 'Fácil de limpar', 35,
+ 25, 12.90, 25.90, 3),
+
+('Fetiche Algema', 'Algemas para práticas de fetiche.', 'Prata', 'Secret Love', NULL, 'Dominação',
+'Acessórios', 'Fetiches', 'Adultos', 'Ajustável', 'Metal', 'Com chaves de segurança', 40, 30,
+15.90, 31.90, 1);
