@@ -7,13 +7,15 @@ import org.springframework.http.HttpStatus;
 import java.net.URI;
 
 import static java.net.URI.create;
+import static org.springframework.http.HttpStatus.CONFLICT;
 
 @Getter
 public enum SupplierProblemDetailType implements ProblemDetailType
 {
   NOT_FOUND("/not-found", "Supplier not found",
       HttpStatus.NOT_FOUND
-  );
+  ),
+  IN_USE("/in-use", "Supplier in use", CONFLICT);
 
   private final URI type;
   private final String title;

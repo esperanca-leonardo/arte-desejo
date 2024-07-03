@@ -3,11 +3,13 @@ package com.esperanca.projects.artedesejo.domain.supplier.service.crud;
 import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
 import com.esperanca.projects.artedesejo.domain.supplier.converter.SupplierConverter;
 import com.esperanca.projects.artedesejo.domain.supplier.entity.Supplier;
+import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierInUseException;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierNotFoundException;
 import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierInput;
 import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierOutput;
 import com.esperanca.projects.artedesejo.domain.supplier.repository.SupplierRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,6 +64,15 @@ public class SupplierCrudServiceImpl implements SupplierCrudService
   public void deleteById(Long id)
   {
     this.findById(id);
-    this.repository.deleteById(id);
+
+    try
+    {
+      this.repository.deleteById(id);
+      this.repository.flush();
+    }
+    catch (DataIntegrityViolationException exception)
+    {
+      throw new SupplierInUseException(id);
+    }
   }
 }
