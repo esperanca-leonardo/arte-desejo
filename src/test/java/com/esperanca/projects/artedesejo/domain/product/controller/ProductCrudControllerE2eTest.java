@@ -48,8 +48,8 @@ public class ProductCrudControllerE2eTest
   class FindAll
   {
     @Test
-    @DisplayName("Should return 10 products and status code 200")
-    void shouldReturn10ProductsAndStatus200()
+    @DisplayName("Should return 10 products and status 200")
+    void shouldReturnTenProductsAndStatus200()
     {
       given()
           .contentType(JSON)
@@ -70,8 +70,8 @@ public class ProductCrudControllerE2eTest
   class FindById
   {
     @Test
-    @DisplayName("Should return a product when a valid ID is provided")
-    void shouldReturnProductWhenValidIdIsProvided()
+    @DisplayName("Should return product when valid ID is provided")
+    void shouldReturnProductWhenValidIdProvided()
     {
       final int productId = 6;
 
@@ -108,7 +108,7 @@ public class ProductCrudControllerE2eTest
     }
 
     @Test
-    @DisplayName("Should return 404 and problem details when product is not found")
+    @DisplayName("Should return 404 and problem details when product not found")
     void shouldReturn404AndProblemDetailsWhenProductNotFound()
     {
       final int productId = 90;
@@ -134,7 +134,7 @@ public class ProductCrudControllerE2eTest
   class Save
   {
     @Test
-    @DisplayName("Should create a product successfully and return 201 status code")
+    @DisplayName("Should create product successfully")
     void shouldCreateProductSuccessfully()
     {
       final Map<String, Object> product = createProductWithValidData();
@@ -173,9 +173,8 @@ public class ProductCrudControllerE2eTest
     }
 
     @Test
-    @DisplayName("Should return a 400 status code and problem details when " +
-        "a invalid data is provided")
-    void shouldReturn400AndProblemDetailsWhenInvalidDataIsProvided()
+    @DisplayName("Should return 400 and problem details when invalid data is provided")
+    void shouldReturn400AndProblemDetailsWhenInvalidDataProvided()
     {
       final int statusCode = BAD_REQUEST.value();
       final Map<String, Object> product = createProductWithInvalidData();
@@ -234,7 +233,8 @@ public class ProductCrudControllerE2eTest
   class UpdateById
   {
     @Test
-    void shouldReturnUpdatedProductWithCorrectDetails()
+    @DisplayName("Should return updated product successfully")
+    void shouldReturnUpdatedProductSuccessfully()
     {
       final int productId = 1;
       final int statusCode = OK.value();
@@ -275,6 +275,7 @@ public class ProductCrudControllerE2eTest
     }
 
     @Test
+    @DisplayName("Should return 404 and problem details when product not found")
     void shouldReturn404AndProblemDetailsWhenProductNotFound()
     {
       final int productId = 90;
@@ -299,7 +300,8 @@ public class ProductCrudControllerE2eTest
     }
 
     @Test
-    void shouldReturnStatusCode400AndErrorMessageWhenInvalidFieldsAreSent()
+    @DisplayName("Should return 400 and problem details when invalid fields are sent")
+    void shouldReturn400AndProblemDetailsWhenInvalidFieldsSent()
     {
       final int productId = 9;
       final int statusCode = BAD_REQUEST.value();
@@ -360,6 +362,7 @@ public class ProductCrudControllerE2eTest
   class DeleteById
   {
     @Test
+    @DisplayName("Should delete product successfully")
     void shouldDeleteProductSuccessfully()
     {
       given()
@@ -371,7 +374,8 @@ public class ProductCrudControllerE2eTest
     }
 
     @Test
-    void shouldReturnStatusCode404AndErrorMessageWhenProductNotFound()
+    @DisplayName("Should return 404 and problem details when product not found")
+    void shouldReturn404AndProblemDetailsWhenProductNotFound()
     {
       final int productId = 90;
       final int statusCode = NOT_FOUND.value();
