@@ -19,6 +19,9 @@ jobs:
       
       - name: Build project
         run: mvn clean install -DskipTests
+
+      - name: List target directory (for debugging)
+        run: ls -l target
   
   release:
     name: Creation of Release
