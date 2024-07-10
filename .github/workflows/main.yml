@@ -20,11 +20,11 @@ jobs:
       - name: Build project
         run: mvn clean install -DskipTests
 
-      # - name: Upload JAR as artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: artedesejo-jar
-      #     path: target/artedesejo-0.0.1-SNAPSHOT.jar
+      - name: Upload JAR as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artedesejo-jar
+          path: target/artedesejo-0.0.1-SNAPSHOT.jar
 
   release:
     name: Creation of Release
@@ -34,11 +34,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.1.7
 
-      # - name: Download JAR artifact
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: artedesejo-jar
-      #     path: .
+      - name: Download JAR artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artedesejo-jar
+          path: .
 
       - name: Login Docker Hub
         uses: docker/login-action@v3
