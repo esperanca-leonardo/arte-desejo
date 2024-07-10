@@ -1,0 +1,41 @@
+name: CI-CD
+on:
+  push:
+    branches: ["main"]
+    
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto' 
+          java-version: '17'
+      
+      - name: Build project
+        run: mvn clean install -DskipTests
+  
+  release:
+    name: Creation of Release
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v4.1.7
+      
+      - name: Login Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build docker image
+        run: docker build -t esperanca98/arte-desejo .
+
+      - name: Push docker image
+        run: docker push esperanca98/arte-desejo        
