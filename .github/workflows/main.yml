@@ -50,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v6.3.0
         with:
           context: ./src
-          file: ./src/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: esperanca98/artedesejo:latest
 
