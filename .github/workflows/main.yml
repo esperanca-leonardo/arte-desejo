@@ -49,7 +49,6 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v6.3.0
         with:
-          context: ./src
           file: ./Dockerfile
           push: true
           tags: esperanca98/artedesejo:latest
