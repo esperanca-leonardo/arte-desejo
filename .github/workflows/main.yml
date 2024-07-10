@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build docker image
-        run: docker build -t esperanca98/arte-desejo .
+        run: docker build -t esperanca98/artedesejo .
 
       - name: Push docker image
-        run: docker push esperanca98/arte-desejo        
+        run: docker push esperanca98/artedesejo        
