@@ -49,9 +49,11 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v6.3.0
         with:
-          file: Dockerfile
+          # file: Dockerfile
           push: true
-          tags: esperanca98/artedesejo:latest
+          tags: |
+            esperanca98/artedesejo:${{ github.run_number }}
+            esperanca98/artedesejo:latest
 
       # - name: Build docker image
       #   run: docker build -t esperanca98/artedesejo .
