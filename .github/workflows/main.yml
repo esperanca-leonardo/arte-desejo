@@ -46,8 +46,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build docker image
-        run: docker build -t esperanca98/artedesejo .
-
-      - name: Push docker image
-        run: docker push esperanca98/artedesejo        
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v6.3.0
+        with:
+          push: true
+          tags: esperanca98/artedesejo:latest
