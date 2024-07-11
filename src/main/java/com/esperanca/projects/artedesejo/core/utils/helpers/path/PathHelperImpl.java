@@ -1,4 +1,4 @@
-package com.esperanca.projects.artedesejo.core.utils.helpers.pathhelper;
+package com.esperanca.projects.artedesejo.core.utils.helpers.path;
 
 import com.esperanca.projects.artedesejo.core.contracts.helpers.path.PathHelper;
 import org.springframework.stereotype.Component;
