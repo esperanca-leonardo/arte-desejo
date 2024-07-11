@@ -44,9 +44,13 @@ public class SaleOrderCrudServiceImpl implements SaleOrderCrudService
   @Override
   public SaleOrderOutput save(SaleOrderInput saleOrderInput)
   {
-    SaleOrder entity = this.converter.toEntity(saleOrderInput);
-    entity = this.repository.save(entity);
-    return this.converter.toOutput(entity);
+    final Consumer consumer = this.foreignKeyHelper.getEntity(saleOrderInput);
+    SaleOrder saleOrder = this.converter.toEntity(saleOrderInput);
+
+    saleOrder.setConsumer(consumer);
+    saleOrder = this.repository.save(saleOrder);
+
+    return this.converter.toOutput(saleOrder);
   }
 
   @Override
