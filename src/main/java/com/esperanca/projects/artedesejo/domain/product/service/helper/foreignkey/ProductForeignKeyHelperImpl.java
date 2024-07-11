@@ -14,7 +14,7 @@ public class ProductForeignKeyHelperImpl implements ProductForeignKeyHelper
   private final SupplierService supplierService;
 
   @Override
-  public Supplier getSupplier(ProductInput productInput)
+  public Supplier getEntity(ProductInput productInput)
   {
     final SupplierIdInput supplierIdInput = productInput.getSupplierIdInput();
     final Long supplierId = supplierIdInput.getId();

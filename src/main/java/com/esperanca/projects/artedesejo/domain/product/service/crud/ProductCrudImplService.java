@@ -43,7 +43,7 @@ public class ProductCrudImplService implements ProductCrudService
   @Override
   public ProductOutput save(ProductInput productInput)
   {
-    final Supplier supplier = this.foreignKeyHelper.getSupplier(productInput);
+    final Supplier supplier = this.foreignKeyHelper.getEntity(productInput);
     Product product = this.converter.toEntity(productInput);
 
     product.setSupplier(supplier);
@@ -59,7 +59,7 @@ public class ProductCrudImplService implements ProductCrudService
     Product product = this.repository.findById(id)
         .orElseThrow(() -> new ProductNotFoundException(id));
 
-    final Supplier supplier = this.foreignKeyHelper.getSupplier(productInput);
+    final Supplier supplier = this.foreignKeyHelper.getEntity(productInput);
 
     product.setSupplier(supplier);
     this.propertyCopier.copyProperties(productInput, product);
