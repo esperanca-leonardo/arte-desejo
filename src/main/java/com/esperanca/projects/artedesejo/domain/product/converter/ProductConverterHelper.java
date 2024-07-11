@@ -1,14 +1,14 @@
 package com.esperanca.projects.artedesejo.domain.product.converter;
 
-import com.esperanca.projects.artedesejo.core.utils.converter.Converter;
+import com.esperanca.projects.artedesejo.core.contracts.helpers.converter.ConverterHelper;
 import com.esperanca.projects.artedesejo.domain.product.entity.Product;
 import com.esperanca.projects.artedesejo.domain.product.models.ProductInput;
 import com.esperanca.projects.artedesejo.domain.product.models.ProductOutput;
 
 import java.util.List;
 
-public interface ProductConverter extends
-    Converter<Product, ProductInput, ProductOutput>
+public interface ProductConverterHelper extends
+                                        ConverterHelper<Product, ProductInput, ProductOutput>
 {
   @Override
   Product toEntity(ProductInput productInput);

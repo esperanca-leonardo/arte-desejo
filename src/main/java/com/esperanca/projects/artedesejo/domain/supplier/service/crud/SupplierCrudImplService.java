@@ -1,7 +1,7 @@
 package com.esperanca.projects.artedesejo.domain.supplier.service.crud;
 
 import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
-import com.esperanca.projects.artedesejo.domain.supplier.converter.SupplierConverter;
+import com.esperanca.projects.artedesejo.domain.supplier.converter.SupplierConverterHelper;
 import com.esperanca.projects.artedesejo.domain.supplier.entity.Supplier;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierInUseException;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierNotFoundException;
@@ -19,7 +19,7 @@ import java.util.List;
 public class SupplierCrudImplService implements SupplierCrudService
 {
   private final PropertyCopier copier;
-  private final SupplierConverter converter;
+  private final SupplierConverterHelper converter;
   private final SupplierRepository repository;
 
   @Override

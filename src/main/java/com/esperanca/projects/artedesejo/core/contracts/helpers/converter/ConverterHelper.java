@@ -1,11 +1,11 @@
-package com.esperanca.projects.artedesejo.core.utils.converter;
+package com.esperanca.projects.artedesejo.core.contracts.helpers.converter;
 
 import com.esperanca.projects.artedesejo.core.entity.BaseEntity;
 import com.esperanca.projects.artedesejo.core.models.BaseOutput;
 
 import java.util.List;
 
-public interface Converter<
+public interface ConverterHelper<
     Entity extends BaseEntity,
     Input,
     Output extends BaseOutput>

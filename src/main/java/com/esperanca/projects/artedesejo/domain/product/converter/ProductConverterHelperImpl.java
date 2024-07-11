@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 @AllArgsConstructor
-public class ProductConverterImpl implements ProductConverter
+public class ProductConverterHelperImpl implements ProductConverterHelper
 {
   private final ModelMapper modelMapper;
 

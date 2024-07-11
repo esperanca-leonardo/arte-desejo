@@ -1,7 +1,7 @@
 package com.esperanca.projects.artedesejo.domain.product.service.crud;
 
 import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
-import com.esperanca.projects.artedesejo.domain.product.converter.ProductConverter;
+import com.esperanca.projects.artedesejo.domain.product.converter.ProductConverterHelper;
 import com.esperanca.projects.artedesejo.domain.product.entity.Product;
 import com.esperanca.projects.artedesejo.domain.product.exceptions.ProductNotFoundException;
 import com.esperanca.projects.artedesejo.domain.product.models.ProductInput;
@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductCrudImplService implements ProductCrudService
 {
-  private final ProductConverter converter;
+  private final ProductConverterHelper converter;
   private final ProductRepository repository;
   private final PropertyCopier propertyCopier;
   private final ProductForeignKeyHelper foreignKeyHelper;
