@@ -15,6 +15,9 @@ public enum ConsumerProblemDetailType implements ProblemDetailType
   NOT_FOUND("/not-found", "Consumer not found",
       HttpStatus.NOT_FOUND
   ),
+  IN_USE("/in-use", "Consumer in use",
+      CONFLICT
+  ),
   CPF_ALREADY_EXISTS("/cpf-already-exists", "CPF already exists",
       CONFLICT
   ),
