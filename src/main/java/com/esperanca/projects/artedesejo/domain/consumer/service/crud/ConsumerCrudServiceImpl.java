@@ -1,4 +1,4 @@
-package com.esperanca.projects.artedesejo.domain.consumer.service;
+package com.esperanca.projects.artedesejo.domain.consumer.service.crud;
 
 import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
 import com.esperanca.projects.artedesejo.domain.consumer.converter.ConsumerConverter;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ConsumerServiceImpl implements ConsumerService
+public class ConsumerCrudServiceImpl implements ConsumerCrudService
 {
   private final PropertyCopier copier;
   private final ConsumerConverter converter;

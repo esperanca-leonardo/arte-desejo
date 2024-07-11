@@ -2,7 +2,7 @@ package com.esperanca.projects.artedesejo.domain.consumer.controller;
 
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
-import com.esperanca.projects.artedesejo.domain.consumer.service.ConsumerService;
+import com.esperanca.projects.artedesejo.domain.consumer.service.crud.ConsumerCrudService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import static org.springframework.http.HttpStatus.*;
 @AllArgsConstructor
 public class ConsumerController
 {
-  private final ConsumerService service;
+  private final ConsumerCrudService service;
 
   @GetMapping
   @ResponseStatus(OK)
