@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class BaseModelOutput
+public class BaseOutput
 {
   private Long id;
   private LocalDateTime createdAt;

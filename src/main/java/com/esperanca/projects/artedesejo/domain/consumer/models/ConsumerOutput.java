@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.consumer.models;
 
-import com.esperanca.projects.artedesejo.core.models.BaseModelOutput;
+import com.esperanca.projects.artedesejo.core.models.BaseOutput;
 import com.esperanca.projects.artedesejo.domain.address.models.AddressOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.enums.Gender;
 import com.esperanca.projects.artedesejo.domain.consumer.enums.SexualOrientation;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class ConsumerOutput extends BaseModelOutput
+public class ConsumerOutput extends BaseOutput
 {
   private String name;
   private Gender gender;
