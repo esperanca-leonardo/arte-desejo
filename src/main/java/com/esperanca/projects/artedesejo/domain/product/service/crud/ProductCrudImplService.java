@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.product.service.crud;
 
-import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
+import com.esperanca.projects.artedesejo.core.contracts.helpers.copier.CopierHelper;
 import com.esperanca.projects.artedesejo.domain.product.converter.ProductConverterHelper;
 import com.esperanca.projects.artedesejo.domain.product.entity.Product;
 import com.esperanca.projects.artedesejo.domain.product.exceptions.ProductNotFoundException;
@@ -20,7 +20,7 @@ public class ProductCrudImplService implements ProductCrudService
 {
   private final ProductConverterHelper converter;
   private final ProductRepository repository;
-  private final PropertyCopier propertyCopier;
+  private final CopierHelper copierHelper;
   private final ProductForeignKeyHelper foreignKeyHelper;
 
   @Override
@@ -62,7 +62,7 @@ public class ProductCrudImplService implements ProductCrudService
     final Supplier supplier = this.foreignKeyHelper.getEntity(productInput);
 
     product.setSupplier(supplier);
-    this.propertyCopier.copyProperties(productInput, product);
+    this.copierHelper.copyProperties(productInput, product);
     product = this.repository.save(product);
 
     return this.converter.toOutput(product);

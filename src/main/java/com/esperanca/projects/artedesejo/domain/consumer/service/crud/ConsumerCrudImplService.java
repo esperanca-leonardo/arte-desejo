@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.consumer.service.crud;
 
-import com.esperanca.projects.artedesejo.core.utils.propertycopier.PropertyCopier;
+import com.esperanca.projects.artedesejo.core.contracts.helpers.copier.CopierHelper;
 import com.esperanca.projects.artedesejo.domain.consumer.converter.ConsumerConverterHelper;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ConsumerCrudImplService implements ConsumerCrudService
 {
-  private final PropertyCopier copier;
+  private final CopierHelper copier;
   private final ConsumerConverterHelper converter;
   private final ConsumerChecker validator;
   private final ConsumerRepository repository;
