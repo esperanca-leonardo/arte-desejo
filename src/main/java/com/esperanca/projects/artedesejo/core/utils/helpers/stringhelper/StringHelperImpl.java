@@ -1,5 +1,6 @@
 package com.esperanca.projects.artedesejo.core.utils.helpers.stringhelper;
 
+import com.esperanca.projects.artedesejo.core.contracts.helpers.stringhelper.StringHelper;
 import org.springframework.stereotype.Component;
 
 @Component

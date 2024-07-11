@@ -1,5 +1,6 @@
 package com.esperanca.projects.artedesejo.core.utils.helpers.pathhelper;
 
+import com.esperanca.projects.artedesejo.core.contracts.helpers.pathhelper.PathHelper;
 import org.springframework.stereotype.Component;
 
 import static java.lang.String.format;
