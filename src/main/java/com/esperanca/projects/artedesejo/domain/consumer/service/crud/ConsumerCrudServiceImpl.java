@@ -20,9 +20,9 @@ import java.util.List;
 public class ConsumerCrudServiceImpl implements ConsumerCrudService
 {
   private final CopierHelper copier;
-  private final ConsumerConverterHelper converter;
   private final ConsumerChecker validator;
   private final ConsumerRepository repository;
+  private final ConsumerConverterHelper converter;
 
   @Override
   public List<ConsumerOutput> findAll()
@@ -64,7 +64,7 @@ public class ConsumerCrudServiceImpl implements ConsumerCrudService
   }
 
   @Override
-  public void deleteById(Long id)
+  public void deleteById(Long id) throws ConsumerInUseException
   {
     this.findById(id);
 

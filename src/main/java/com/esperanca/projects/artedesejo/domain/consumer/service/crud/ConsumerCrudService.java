@@ -1,6 +1,7 @@
 package com.esperanca.projects.artedesejo.domain.consumer.service.crud;
 
 import com.esperanca.projects.artedesejo.core.contracts.services.crud.CrudService;
+import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerInUseException;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerNotFoundException;
@@ -23,5 +24,5 @@ public interface ConsumerCrudService extends CrudService<ConsumerOutput, Consume
       throws ConsumerNotFoundException;
 
   @Override
-  void deleteById(Long id);
+  void deleteById(Long id) throws ConsumerInUseException;
 }
