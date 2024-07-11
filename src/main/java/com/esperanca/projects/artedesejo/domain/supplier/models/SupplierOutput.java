@@ -1,16 +1,12 @@
 package com.esperanca.projects.artedesejo.domain.supplier.models;
 
+import com.esperanca.projects.artedesejo.core.models.BaseModelOutput;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
-public class SupplierOutput
+public class SupplierOutput extends BaseModelOutput
 {
-  private Long id;
   private String name;
-  private LocalDateTime createdAt;
-  private LocalDateTime updatedAt;
 }

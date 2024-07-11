@@ -1,5 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.consumer.models;
 
+import com.esperanca.projects.artedesejo.core.models.BaseModelOutput;
 import com.esperanca.projects.artedesejo.domain.address.models.AddressOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.enums.Gender;
 import com.esperanca.projects.artedesejo.domain.consumer.enums.SexualOrientation;
@@ -7,13 +8,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ConsumerOutput
+public class ConsumerOutput extends BaseModelOutput
 {
-  private Long id;
   private String name;
   private Gender gender;
   private SexualOrientation sexualOrientation;
@@ -22,6 +21,4 @@ public class ConsumerOutput
   private String email;
   private String cpf;
   private AddressOutput address;
-  private LocalDateTime createdAt;
-  private LocalDateTime updatedAt;
 }
