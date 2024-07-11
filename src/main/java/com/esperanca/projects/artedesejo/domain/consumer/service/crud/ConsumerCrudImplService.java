@@ -2,6 +2,7 @@ package com.esperanca.projects.artedesejo.domain.consumer.service.crud;
 
 import com.esperanca.projects.artedesejo.core.contracts.helpers.copier.CopierHelper;
 import com.esperanca.projects.artedesejo.domain.consumer.converter.ConsumerConverterHelper;
+import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerInUseException;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.entity.Consumer;
@@ -9,6 +10,7 @@ import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.Consume
 import com.esperanca.projects.artedesejo.domain.consumer.checker.ConsumerChecker;
 import com.esperanca.projects.artedesejo.domain.consumer.repository.ConsumerRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -65,6 +67,14 @@ public class ConsumerCrudImplService implements ConsumerCrudService
   public void deleteById(Long id)
   {
     this.findById(id);
-    this.repository.deleteById(id);
+
+    try
+    {
+      this.repository.deleteById(id);
+    }
+    catch (DataIntegrityViolationException exception)
+    {
+      throw new ConsumerInUseException(id);
+    }
   }
 }
