@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.supplier.service.crud;
 
-import com.esperanca.projects.artedesejo.core.contracts.crud.CrudService;
+import com.esperanca.projects.artedesejo.core.contracts.services.crud.CrudService;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierInUseException;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierNotFoundException;
 import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierInput;

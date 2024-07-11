@@ -1,4 +1,4 @@
-package com.esperanca.projects.artedesejo.core.contracts.crud;
+package com.esperanca.projects.artedesejo.core.contracts.services.crud;
 
 import java.util.List;
 

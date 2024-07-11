@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.product.service.crud;
 
-import com.esperanca.projects.artedesejo.core.contracts.crud.CrudService;
+import com.esperanca.projects.artedesejo.core.contracts.services.crud.CrudService;
 import com.esperanca.projects.artedesejo.domain.product.exceptions.ProductNotFoundException;
 import com.esperanca.projects.artedesejo.domain.product.models.ProductInput;
 import com.esperanca.projects.artedesejo.domain.product.models.ProductOutput;
