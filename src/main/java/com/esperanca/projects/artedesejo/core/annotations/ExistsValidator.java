@@ -1,8 +1,8 @@
 package com.esperanca.projects.artedesejo.core.annotations;
 
 import com.esperanca.projects.artedesejo.core.utils.entityfinder.EntityFinder;
-import com.esperanca.projects.artedesejo.core.contracts.helpers.pathhelper.PathHelper;
-import com.esperanca.projects.artedesejo.core.contracts.helpers.stringhelper.StringHelper;
+import com.esperanca.projects.artedesejo.core.contracts.helpers.path.PathHelper;
+import com.esperanca.projects.artedesejo.core.contracts.helpers.string.StringHelper;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.AllArgsConstructor;

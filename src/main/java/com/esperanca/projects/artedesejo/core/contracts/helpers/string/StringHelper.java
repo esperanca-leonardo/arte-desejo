@@ -1,4 +1,4 @@
-package com.esperanca.projects.artedesejo.core.contracts.helpers.stringhelper;
+package com.esperanca.projects.artedesejo.core.contracts.helpers.string;
 
 public interface StringHelper
 {
