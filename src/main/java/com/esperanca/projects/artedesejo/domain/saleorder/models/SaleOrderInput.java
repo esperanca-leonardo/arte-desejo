@@ -15,7 +15,7 @@ public class SaleOrderInput
   @Valid
   @Exists
   @NotNull
-  private ConsumerIdInput consumerId;
+  private ConsumerIdInput consumerIdInput;
 
   @NotNull
   @PositiveOrZero
