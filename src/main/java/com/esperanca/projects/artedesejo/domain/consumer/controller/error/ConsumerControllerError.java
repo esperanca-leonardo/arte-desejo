@@ -3,11 +3,13 @@ package com.esperanca.projects.artedesejo.domain.consumer.controller.error;
 import com.esperanca.projects.artedesejo.core.error.problemdetail.contracts.ProblemDetailBuilder;
 import com.esperanca.projects.artedesejo.domain.consumer.controller.ConsumerController;
 import com.esperanca.projects.artedesejo.domain.consumer.controller.error.enums.ConsumerProblemDetailType;
+import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerInUseException;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerNotFoundException;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.verifications.CpfAlreadyExistsException;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.verifications.EmailAlreadyExistsException;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.verifications.PhoneNumberAlreadyExistsException;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,6 +34,18 @@ public class ConsumerControllerError
     );
 
     return new ResponseEntity<>(problemDetail, NOT_FOUND.getStatus());
+  }
+
+  @ExceptionHandler(ConsumerInUseException.class)
+  public ResponseEntity<ProblemDetail> handleConsumerInUseException(
+      ConsumerInUseException exception)
+  {
+    final ProblemDetail problemDetail =
+        problemDetailBuilder.buildProblemDetail(IN_USE,
+            exception.getMessage()
+        );
+
+    return new ResponseEntity<>(problemDetail, IN_USE.getStatus());
   }
 
   @ExceptionHandler(CpfAlreadyExistsException.class)
