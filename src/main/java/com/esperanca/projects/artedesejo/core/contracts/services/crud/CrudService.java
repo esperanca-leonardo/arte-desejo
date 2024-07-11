@@ -1,8 +1,10 @@
 package com.esperanca.projects.artedesejo.core.contracts.services.crud;
 
+import com.esperanca.projects.artedesejo.core.models.BaseOutput;
+
 import java.util.List;
 
-public interface CrudService<Output, Input, ID>
+public interface CrudService<Output extends BaseOutput, Input, ID>
 {
   List<Output> findAll();
 
