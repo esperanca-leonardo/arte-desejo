@@ -1,4 +1,4 @@
-package com.esperanca.projects.artedesejo.core.utils.copier;
+package com.esperanca.projects.artedesejo.core.utils.helpers.copier;
 
 import com.esperanca.projects.artedesejo.core.contracts.helpers.copier.CopierHelper;
 import lombok.AllArgsConstructor;
