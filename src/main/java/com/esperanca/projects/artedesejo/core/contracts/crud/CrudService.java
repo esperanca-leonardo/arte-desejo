@@ -2,7 +2,7 @@ package com.esperanca.projects.artedesejo.core.contracts.crud;
 
 import java.util.List;
 
-public interface ServiceCrud<Output, Input, ID>
+public interface CrudService<Output, Input, ID>
 {
   List<Output> findAll();
 

@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ProductCrudServiceImpl implements ProductCrudService
+public class ProductCrudImplService implements ProductCrudService
 {
   private final ProductConverter converter;
   private final ProductRepository repository;

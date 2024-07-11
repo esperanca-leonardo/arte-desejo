@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class SupplierCrudServiceImpl implements SupplierCrudService
+public class SupplierCrudImplService implements SupplierCrudService
 {
   private final PropertyCopier copier;
   private final SupplierConverter converter;

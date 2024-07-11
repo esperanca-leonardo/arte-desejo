@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ConsumerCrudServiceImpl implements ConsumerCrudService
+public class ConsumerCrudImplService implements ConsumerCrudService
 {
   private final PropertyCopier copier;
   private final ConsumerConverter converter;

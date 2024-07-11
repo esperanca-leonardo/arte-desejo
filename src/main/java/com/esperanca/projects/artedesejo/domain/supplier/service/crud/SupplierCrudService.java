@@ -1,6 +1,6 @@
 package com.esperanca.projects.artedesejo.domain.supplier.service.crud;
 
-import com.esperanca.projects.artedesejo.core.contracts.crud.ServiceCrud;
+import com.esperanca.projects.artedesejo.core.contracts.crud.CrudService;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierInUseException;
 import com.esperanca.projects.artedesejo.domain.supplier.exceptions.SupplierNotFoundException;
 import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierInput;
@@ -8,7 +8,7 @@ import com.esperanca.projects.artedesejo.domain.supplier.models.SupplierOutput;
 
 import java.util.List;
 
-public interface SupplierCrudService extends ServiceCrud<SupplierOutput, SupplierInput, Long>
+public interface SupplierCrudService extends CrudService<SupplierOutput, SupplierInput, Long>
 {
   @Override
   List<SupplierOutput> findAll();

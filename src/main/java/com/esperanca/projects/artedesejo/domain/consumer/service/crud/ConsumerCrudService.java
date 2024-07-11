@@ -1,13 +1,13 @@
 package com.esperanca.projects.artedesejo.domain.consumer.service.crud;
 
-import com.esperanca.projects.artedesejo.core.contracts.crud.ServiceCrud;
+import com.esperanca.projects.artedesejo.core.contracts.crud.CrudService;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerInput;
 import com.esperanca.projects.artedesejo.domain.consumer.models.ConsumerOutput;
 import com.esperanca.projects.artedesejo.domain.consumer.exceptions.crud.ConsumerNotFoundException;
 
 import java.util.List;
 
-public interface ConsumerCrudService extends ServiceCrud<ConsumerOutput, ConsumerInput, Long>
+public interface ConsumerCrudService extends CrudService<ConsumerOutput, ConsumerInput, Long>
 {
   @Override
   List<ConsumerOutput> findAll();
