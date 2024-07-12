@@ -506,6 +506,27 @@ public class ConsumerCrudControllerE2eTest
           .body("instance", equalTo("/consumers/" + consumerId))
           .body("timestamp", matchesPattern(ISO8601_WITHOUT_NANO));
     }
+
+    @Test
+    @DisplayName("Should return 409 and problem details when consumer is in use and cannot be deleted")
+    void shouldReturn409AndProblemDetailsWhenConsumerInUse()
+    {
+      final int consumerId = 2;
+      final int statusCode = CONFLICT.value();
+
+      given()
+          .pathParam("supplierId", consumerId)
+      .when()
+          .delete("/{supplierId}")
+      .then()
+          .statusCode(statusCode)
+          .body("type", equalTo("https://artedesejo.com.br/problems/consumer/in-use"))
+          .body("title", equalTo("Consumer in use"))
+          .body("status", equalTo(statusCode))
+          .body("detail", equalTo("Consumer in use with id: " + consumerId))
+          .body("instance", equalTo("/consumers/" + consumerId))
+          .body("timestamp", matchesPattern(ISO8601_WITHOUT_NANO));
+    }
   }
 
   Map<String, Object> createConsumerWithValidData()
