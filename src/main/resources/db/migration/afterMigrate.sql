@@ -1,10 +1,12 @@
 DELETE FROM product;
 DELETE FROM supplier;
+DELETE FROM sale_order;
 DELETE FROM consumer;
 
 ALTER SEQUENCE supplier_id_seq RESTART WITH 1;
 ALTER SEQUENCE consumer_id_seq RESTART WITH 1;
 ALTER SEQUENCE product_id_seq RESTART WITH 1;
+ALTER SEQUENCE sale_order_id_seq RESTART WITH 1;
 
 INSERT INTO supplier (name) VALUES
     ('Sensual Pleasures'),
@@ -98,3 +100,14 @@ NULL, 'Roleplay', 'Roupas Íntimas', 'Fantasias', 'Adultos', 'Médio', 'Poliést
 ('Fetiche Algema', 'Algemas para práticas de fetiche.', 'Prata', 'Secret Love', NULL, 'Dominação',
 'Acessórios', 'Fetiches', 'Adultos', 'Ajustável', 'Metal', 'Com chaves de segurança', 40, 30,
 15.90, 31.90, 1);
+
+INSERT INTO sale_order(consumer_id, total) VALUES
+(2, 90),
+(3, 250.45),
+(4, 49.90),
+(5, 273.75),
+(6, 123.49),
+(7, 19.90),
+(8, 299.90),
+(9, 125.90),
+(10, 179.90)
